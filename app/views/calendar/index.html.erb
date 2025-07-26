@@ -12,12 +12,12 @@
     <% if item.is_a?(Event) %>
       <%# Event（Good & New）の場合の表示 %>
       <div class="event-item">
-        ・<%= item.content.truncate(10) %>
+        ・<%= link_to item.content.truncate(10), event_path(item) %>
       </div>
     <% elsif item.is_a?(Goal) %>
       <%# Goal（目標）の場合の表示 %>
       <div class="goal-item">
-        🎯 <%= item.title.truncate(10) %>
+        🎯 <%= link_to item.title.truncate(10), goal_path(item) %>
       </div>
     <% end %>
   <% end %>

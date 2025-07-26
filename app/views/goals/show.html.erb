@@ -1,0 +1,16 @@
+<h1>目標 の詳細</h1>
+
+<div class="goal-details" style="margin-bottom: 20px;">
+  <p><strong>達成日:</strong> <%= @goal.start_time.strftime('%Y年%m月%d日') %></p>
+  <p><strong>目標:</strong></p>
+  <div class="goal-content" style="background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px; padding: 15px;">
+    <%= simple_format(@goal.title) %>
+  </div>
+</div>
+
+<div class="actions" style="margin-bottom: 20px;">
+  <%= link_to '編集', edit_goal_path(@goal) %>
+  <%= link_to '削除', goal_path(@goal), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+</div>
+
+<%= link_to 'カレンダーに戻る', root_path %>

@@ -1,0 +1,16 @@
+<h1>Good & New の詳細</h1>
+
+<div class="event-details" style="margin-bottom: 20px;">
+  <p><strong>日付:</strong> <%= @event.start_time.strftime('%Y年%m月%d日') %></p>
+  <p><strong>内容:</strong></p>
+  <div class="event-content" style="background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px; padding: 15px;">
+    <%= simple_format(@event.content) %>
+  </div>
+</div>
+
+<div class="actions" style="margin-bottom: 20px;">
+  <%= link_to '編集', edit_event_path(@event) %>
+  <%= link_to '削除', event_path(@event), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+</div>
+
+<%= link_to 'カレンダーに戻る', root_path %>
