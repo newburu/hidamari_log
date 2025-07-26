@@ -63,3 +63,5 @@ group :test do
 end
 
 gem "simple_calendar"
+gem "bootstrap"
+gem "cssbundling-rails"

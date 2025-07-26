@@ -1,0 +1,19 @@
+// Entry point for your Sass build
+@import "application.bootstrap";
+// カレンダーの土日の色を変更
+.simple-calendar {
+
+  .saturday {
+    background-color: #eef7ff; // 薄い水色
+  }
+
+  .sunday {
+    background-color: #fff2f2; // 薄いピンク色
+  }
+
+  // ついでに今日の日付も目立たせる
+  .today {
+    background-color: #fffde6 !important; // 薄い黄色
+    font-weight: bold;
+  }
+}
