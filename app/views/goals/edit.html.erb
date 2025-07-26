@@ -1,5 +1,15 @@
 <h1>目標の編集</h1>
 
+<% if @goal.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @goal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with(model: @goal, local: true) do |form| %>
   <div style="margin-bottom: 10px;">
     <%= form.label :title, '目標' %><br>
