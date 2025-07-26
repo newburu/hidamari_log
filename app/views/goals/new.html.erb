@@ -1,0 +1,21 @@
+<h1>新しい目標の設定</h1>
+
+<%= form_with(model: @goal, local: true) do |form| %>
+  <div style="margin-bottom: 10px;">
+    <%= form.label :title, '目標' %><br>
+    <%= form.text_field :title, style: "width: 100%;" %>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <%= form.label :start_time, '達成日' %><br>
+    <%= form.date_field :start_time %>
+  </div>
+
+  <div>
+    <%= form.submit '目標を設定する' %>
+  </div>
+<% end %>
+
+<p style="margin-top: 20px;">
+  <%= link_to 'カレンダーに戻る', root_path %>
+</p>

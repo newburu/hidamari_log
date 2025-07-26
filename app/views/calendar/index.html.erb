@@ -1,0 +1,24 @@
+<h1>Hidamari-log</h1>
+
+<div style="margin-bottom: 20px;">
+  <%= link_to '新しい目標を立てる', new_goal_path, class: 'btn-primary' %>
+</div>
+
+<%= month_calendar(events: @calendar_items) do |date, items_on_day| %>
+  <%= link_to date.day, new_event_path(start_time: date) %>
+
+  <%# この日のアイテムを一覧表示 %>
+  <% items_on_day.each do |item| %>
+    <% if item.is_a?(Event) %>
+      <%# Event（Good & New）の場合の表示 %>
+      <div class="event-item">
+        ・<%= item.content.truncate(10) %>
+      </div>
+    <% elsif item.is_a?(Goal) %>
+      <%# Goal（目標）の場合の表示 %>
+      <div class="goal-item">
+        🎯 <%= item.title.truncate(10) %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

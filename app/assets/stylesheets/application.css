@@ -8,3 +8,27 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+.event-item {
+  font-size: 12px;
+  margin-top: 4px;
+  background-color: #e6f7ff; /* 明るい青色 */
+  border: 1px solid #91d5ff; /* 少し濃い青色 */
+  border-radius: 4px;
+  padding: 2px 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goal-item {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 4px;
+  background-color: #fffbe6; /* 薄い黄色 */
+  border: 1px solid #ffe58f; /* 少し濃い黄色 */
+  border-radius: 4px;
+  padding: 2px 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

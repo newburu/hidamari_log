@@ -1,0 +1,19 @@
+<h1>Good & New の登録</h1>
+
+<%= form_with(model: @event, local: true) do |form| %>
+  <p>日付: <%= @event.start_time.strftime('%Y年%m月%d日') %></p>
+  <%= form.hidden_field :start_time %>
+
+  <div>
+    <%= form.label :content, '内容' %><br>
+    <%= form.text_area :content, rows: 5, style: "width: 100%;" %>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <%= form.submit '登録する' %>
+  </div>
+<% end %>
+
+<p style="margin-top: 20px;">
+  <%= link_to 'カレンダーに戻る', root_path %>
+</p>
