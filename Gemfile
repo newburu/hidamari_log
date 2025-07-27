@@ -65,3 +65,4 @@ end
 gem "simple_calendar"
 gem "bootstrap"
 gem "cssbundling-rails"
+gem "rails-i18n"

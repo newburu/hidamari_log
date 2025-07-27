@@ -1,31 +1,38 @@
-<h1>目標の編集</h1>
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="h4 mb-0"><%= t('.title') %></h1>
+      </div>
+      <div class="card-body">
+        <%# バリデーションエラーの表示エリア %>
+        <% if @goal.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <ul>
+              <% @goal.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-<% if @goal.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
-    <ul>
-      <% @goal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+        <%= form_with(model: @goal, local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.label :title, class: 'form-label' %>
+            <%= form.text_field :title, class: 'form-control' %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :start_time, class: 'form-label' %>
+            <%= form.date_field :start_time, class: 'form-control' %>
+          </div>
+
+          <div class="d-flex align-items-center gap-3">
+            <%= form.submit t('common.regist'), class: 'btn btn-primary' %>
+            <%= link_to t('common.back'), root_path %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<%= form_with(model: @goal, local: true) do |form| %>
-  <div style="margin-bottom: 10px;">
-    <%= form.label :title, '目標' %><br>
-    <%= form.text_field :title, style: "width: 100%;" %>
-  </div>
-
-  <div style="margin-bottom: 10px;">
-    <%= form.label :start_time, '達成日' %><br>
-    <%= form.date_field :start_time %>
-  </div>
-
-  <div>
-    <%= form.submit '目標を設定する' %>
-  </div>
-<% end %>
-
-<p style="margin-top: 20px;">
-  <%= link_to 'カレンダーに戻る', root_path %>
-</p>
+</div>

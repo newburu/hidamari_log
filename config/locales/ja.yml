@@ -1,0 +1,45 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+      goal: 目標
+    attributes:
+      event:
+        content: 内容
+        start_time: 日付
+      goal:
+        title: タイトル
+        start_time: 達成日
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する
+
+  common:
+    back: 戻る
+    regist: 登録
+    update: 更新
+    edit: 編集
+    destroy: 削除
+    destroy_confirm: 本当に削除しますか？
+
+  events:
+    new:
+      title: Good & New の登録
+    edit:
+      title: Good & New の編集
+    show:
+      title: Good & New の詳細
+
+  goals:
+    new:
+      title: 目標 の登録
+    edit:
+      title: 目標 の編集
+    show:
+      title: 目標 の詳細
+
+  simple_calendar:
+    previous: "前の月"
+    next: "次の月"
+    today: "今日"
