@@ -3,11 +3,18 @@
 // カレンダーの土日の色を変更
 .simple-calendar {
 
-  .saturday {
+  th.wday-0 {
+    color: red;
+  }
+  th.wday-6 {
+    color: blue;
+  } 
+
+  .wday-6 {
     background-color: #eef7ff; // 薄い水色
   }
 
-  .sunday {
+  .wday-0 {
     background-color: #fff2f2; // 薄いピンク色
   }
 
