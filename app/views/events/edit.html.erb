@@ -17,6 +17,7 @@
         <% end %>
 
         <%= form_with(model: @event, local: true) do |form| %>
+          <h5 class="card-title"><%= l @event.start_time, format: :full_date %></h5>
           <%= form.hidden_field :start_time %>
           <div class="mb-3">
             <%= form.label :content, class: 'form-label' %>

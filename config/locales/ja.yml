@@ -1,4 +1,12 @@
 ja:
+  time:
+    formats:
+      full_date: "%Y年%m月%d日 (%a)"
+      full_datetime: "%Y年%m月%d日 (%a) %H:%M"
+  date:
+    formats:
+      full_date: "%Y年%m月%d日 (%a)"
+
   activerecord:
     models:
       event: イベント

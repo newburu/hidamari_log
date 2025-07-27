@@ -3,8 +3,8 @@
     <%= t('.title') %>
   </div>
   <div class="card-body">
-    <h5 class="card-title"><%= @goal.start_time.strftime('%Y年%m月%d日') %></h5>
-      <%= simple_format(@goal.title, class: "card-text bg-light p-3 rounded") %>
+    <h5 class="card-title"><%= l @goal.start_time, format: :full_date %></h5>
+    <%= simple_format(@goal.title, class: "card-text bg-light p-3 rounded") %>
     <hr>
     <%= link_to t('common.edit'), edit_goal_path(@goal), class: 'btn btn-secondary' %>
     <%= link_to t('common.destroy'), goal_path(@goal), data: { turbo_method: :delete, turbo_confirm: t('common.destroy_confirm') }, class: 'btn btn-danger' %>
