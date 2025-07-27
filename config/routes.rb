@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get "calendar/index"
   resources :events, only: [ :new, :create, :show, :edit, :update, :destroy ]
   resources :goals, only: [ :new, :create, :show, :edit, :update, :destroy ]
+  get "/auth/:provider/callback", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

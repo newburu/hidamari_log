@@ -62,7 +62,16 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# 環境設定
+gem "dotenv-rails"
+
 gem "simple_calendar"
 gem "bootstrap"
 gem "cssbundling-rails"
 gem "rails-i18n"
+
+# 認証
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-twitter2"
+gem "omniauth-rails_csrf_protection"
