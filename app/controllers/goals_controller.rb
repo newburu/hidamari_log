@@ -5,6 +5,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    @goal.user = current_user
     if @goal.save
       redirect_to root_path, notice: "新しい目標を設定しました。"
     else
