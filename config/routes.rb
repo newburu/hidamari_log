@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "terms", to: "pages#terms"
+  get "privacy", to: "pages#privacy"
   get "calendar/index"
   resources :events, only: [ :new, :create, :show, :edit, :update, :destroy ]
   resources :goals, only: [ :new, :create, :show, :edit, :update, :destroy ]
