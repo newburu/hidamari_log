@@ -14,7 +14,7 @@
         classes.join(' ')
       }
     ) do |date, items_on_day| %>
-  <%= link_to date.day, new_event_path(start_time: date) %>
+  <%= link_to date.day, new_entry_path(start_time: date) %>
 
   <%# この日のアイテムを一覧表示 %>
   <% items_on_day.each do |item| %>

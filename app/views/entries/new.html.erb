@@ -1,0 +1,27 @@
+<% date = @event.start_time %>
+<h1><%= date.strftime('%Y年%m月%d日') %> の記録</h1>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        Good & New の登録
+      </div>
+      <div class="card-body">
+        <%= render 'events/form', event: @event %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        目標の登録
+      </div>
+      <div class="card-body">
+        <%= render 'goals/form', goal: @goal %>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'カレンダーに戻る', root_path %>
+</div>

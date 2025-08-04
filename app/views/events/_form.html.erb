@@ -1,0 +1,22 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :start_time %>
+
+  <div class="mb-3">
+    <%= form.label :content, '内容', class: 'form-label' %>
+    <%= form.text_area :content, rows: 5, class: 'form-control' %>
+  </div>
+
+  <div class="d-flex align-items-center gap-3">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
