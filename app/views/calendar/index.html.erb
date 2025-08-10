@@ -1,33 +1,44 @@
-<h1>Hidamari-log</h1>
+<% if current_user %>
+  <%# --- ログインしているユーザー向けの表示 --- %>
+  <h1>Hidamari-log</h1>
 
-<div style="margin-bottom: 20px;">
-  <%= link_to '新しい目標を立てる', new_goal_path, class: 'btn btn-outline-primary' %>
-</div>
+  <%= month_calendar(
+        events: @calendar_items,
+        table: { class: "table table-bordered" },
+        day_class: ->(date) {
+          classes = []
+          classes << "saturday" if date.saturday?
+          classes << "sunday" if date.sunday?
+          classes.join(' ')
+        }
+      ) do |date, items_on_day| %>
+    <%= link_to date.day, new_entry_path(start_time: date) %>
 
-<%= month_calendar(
-      events: @calendar_items,
-      table: { class: "table table-bordered" },
-      day_class: ->(date) {
-        classes = [”bbb＂]
-        classes << "saturday" if date.saturday?
-        classes << "sunday" if date.sunday?
-        classes.join(' ')
-      }
-    ) do |date, items_on_day| %>
-  <%= link_to date.day, new_entry_path(start_time: date) %>
-
-  <%# この日のアイテムを一覧表示 %>
-  <% items_on_day.each do |item| %>
-    <% if item.is_a?(Event) %>
-      <%# Event（Good & New）の場合の表示 %>
-      <div class="event-item">
-        ・<%= link_to item.content.truncate(10), event_path(item) %>
-      </div>
-    <% elsif item.is_a?(Goal) %>
-      <%# Goal（目標）の場合の表示 %>
-      <div class="goal-item">
-        🎯 <%= link_to item.title.truncate(10), goal_path(item) %>
-      </div>
+    <%# この日のアイテムを一覧表示 %>
+    <% items_on_day.each do |item| %>
+      <% if item.is_a?(Event) %>
+        <div class="event-item">
+          ・<%= link_to item.content.truncate(10), event_path(item) %>
+        </div>
+      <% elsif item.is_a?(Goal) %>
+        <div class="goal-item">
+          🎯 <%= link_to item.title.truncate(10), goal_path(item) %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
+
+<% else %>
+  <%# --- ログインしていないユーザー向けの表示 --- %>
+  <div class="p-5 mb-4 bg-light rounded-3 text-center">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Hidamari Logへようこそ</h1>
+      <p class="fs-4">日々の「よかったこと」や目標を記録して、毎日を少し豊かにしませんか？</p>
+      <p>まずはログインして、あなただけのカレンダーを始めましょう。</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+        <%= button_to "Googleでログイン", "/auth/google_oauth2", class: 'btn btn-outline-primary', form: { data: { turbo: false } } %>
+        <%= button_to "Xでログイン", "/auth/twitter2", class: 'btn btn-outline-info', form: { data: { turbo: false } } %>
+      </div>
+    </div>
+  </div>
 <% end %>

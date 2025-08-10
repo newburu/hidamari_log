@@ -44,8 +44,8 @@
             <span><%= current_user.name %>さん</span>
             <%= button_to "ログアウト", logout_path, method: :delete, class: 'btn btn-outline-secondary btn-sm' %>
           <% else %>
-            <%= link_to "Googleでログイン", "/auth/google_oauth2", class: 'btn btn-outline-primary' %>
-            <%= link_to "Xでログイン", "/auth/twitter2", class: 'btn btn-outline-info' %>
+            <%= button_to "Googleでログイン", "/auth/google_oauth2", class: 'btn btn-outline-primary', form: { data: { turbo: false } } %>
+            <%= button_to "Xでログイン", "/auth/twitter2", class: 'btn btn-outline-info', form: { data: { turbo: false } } %>
           <% end %>
         </div>
       </div>

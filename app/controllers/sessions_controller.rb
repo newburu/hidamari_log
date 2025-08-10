@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :create ]
+
   def create
     # OmniAuthから渡された認証情報を取得
     auth_hash = request.env["omniauth.auth"]
