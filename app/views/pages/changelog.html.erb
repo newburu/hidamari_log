@@ -1,0 +1,21 @@
+<%# app/views/pages/changelog.html.erb %>
+<div class="container py-4">
+  <h1>更新履歴</h1>
+
+  <% @changelogs.each do |log| %>
+    <div class="card mb-3">
+      <div class="card-header fw-bold">
+        <%= log.published_on.strftime('%Y年%m月%d日') %>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <%= raw log.content %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mt-4">
+    <%= link_to "トップに戻る", root_path, class: "btn btn-secondary" %>
+  </div>
+</div>

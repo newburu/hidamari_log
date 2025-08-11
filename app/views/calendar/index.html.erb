@@ -41,4 +41,28 @@
       </div>
     </div>
   </div>
+
+  <hr class="my-5">
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h2 class="h4 text-center mb-4">✨ 最近のアップデート</h2>
+      <% if @latest_changelog %>
+        <div class="card mb-3">
+          <div class="card-header fw-bold">
+            <%= @latest_changelog.published_on.strftime('%Y年%m月%d日') %>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              <%= raw @latest_changelog.content %>
+            </p>
+            <div class="text-end">
+              <%= link_to "もっと見る →", changelog_path %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 <% end %>
