@@ -9,6 +9,15 @@ ja:
     formats:
       full_date: "%Y年%m月%d日 (%a)"
 
+  activemodel:
+    models:
+      entry_form: エントリーフォーム
+    attributes:
+      entry_form:
+        content: Good & New
+        title: 目標
+        start_time: 日付
+
   activerecord:
     models:
       event: イベント

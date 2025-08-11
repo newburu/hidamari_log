@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :events
+  has_many :goals
+
   def self.find_or_create_from_auth_hash(auth_hash)
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
