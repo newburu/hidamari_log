@@ -1,4 +1,6 @@
 ja:
+  app:
+    name: "ひだまり ろぐ"
   time:
     formats:
       full_date: "%Y年%m月%d日 (%a)"
