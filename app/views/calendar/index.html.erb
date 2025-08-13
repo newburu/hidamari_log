@@ -15,15 +15,12 @@
     <%= link_to date.day, new_entry_path(start_time: date) %>
 
     <%# この日のアイテムを一覧表示 %>
-    <% items_on_day.each do |item| %>
-      <% if item.is_a?(Event) %>
-        <div class="event-item">
-          ・<%= link_to item.content.truncate(10), event_path(item) %>
+    <% @calendar_items.map(&:start_time).uniq.each do |day| %>
+      <% if day == date %>
+        <div class="day-link">
+          <%= link_to "詳細を見る", entry_path(day.to_date) %>
         </div>
-      <% elsif item.is_a?(Goal) %>
-        <div class="goal-item">
-          🎯 <%= link_to item.title.truncate(10), goal_path(item) %>
-        </div>
+        <% break %>
       <% end %>
     <% end %>
   <% end %>

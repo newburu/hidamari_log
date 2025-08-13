@@ -13,6 +13,12 @@ class EntriesController < ApplicationController
     end
   end
 
+  def show
+    @date = Date.parse(params[:id])
+    @event = current_user.events.find_by(start_time: @date.all_day)
+    @goal = current_user.goals.find_by(start_time: @date.all_day)
+  end
+
   private
 
   def entry_form_params
