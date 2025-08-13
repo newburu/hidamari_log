@@ -12,6 +12,9 @@
 Changelog.destroy_all
 
 Changelog.create!([
+  { published_on: '2025-08-14', content: '<span class="badge bg-success me-2">NEW</span>記録の詳細ページからXに投稿をシェアできる機能を追加しました。' },
+  { published_on: '2025-08-13', content: '<span class="badge bg-success me-2">NEW</span>コピー機能を追加しました。' },
+  { published_on: '2025-08-13', content: '<span class="badge bg-info me-2">UPDATE</span>記録の詳細表示ページを統合しました。' },
   { published_on: '2025-08-11', content: '<span class="badge bg-success me-2">NEW</span>アイコンを新しいデザインに変更しました。' },
   { published_on: '2025-08-10', content: '<span class="badge bg-success me-2">NEW</span>利用規約とプライバシーポリシーのページを追加しました。' },
   { published_on: '2025-08-10', content: '<span class="badge bg-info me-2">UPDATE</span>サイト全体の日本語化を行いました。' },
