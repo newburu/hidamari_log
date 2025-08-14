@@ -6,7 +6,7 @@ class CalendarController < ApplicationController
       @goals = Goal.all.where(user: current_user)
       @calendar_items = @events + @goals
     else
-      @latest_changelog = Changelog.order(published_on: :desc).first
+      @latest_changelogs = Changelog.order(published_on: :desc).limit(3)
     end
   end
 end
