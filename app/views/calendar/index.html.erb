@@ -19,13 +19,11 @@
       <%# 記録がなければ、新規登録ページへ %>
       <%= link_to date.day, new_entry_path(start_time: date) %>
     <% end %>
-
+    <br>
     <%# この日のアイテムを一覧表示 %>
     <% @calendar_items.map(&:start_time).uniq.each do |day| %>
       <% if day == date %>
-        <div class="day-link">
-          <%= link_to "詳細を見る", entry_path(day.to_date) %>
-        </div>
+          <%= link_to "詳細を見る", entry_path(day.to_date), class: "day-link" %>
         <% break %>
       <% end %>
     <% end %>

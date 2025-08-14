@@ -22,9 +22,9 @@
   .today {
     background-color: #fffde6 !important; // 薄い黄色
     font-weight: bold;
-    a {
+    a:not(.day-link) {
       background-color: #fd0d0d;
-      color: white;             /* 文字色を白に */
+      color: white;           /* 文字色を白に */
       width: 2rem;              /* 幅 */
       height: 2rem;             /* 高さ */
       display: inline-flex;     /* 中央揃えのため */
