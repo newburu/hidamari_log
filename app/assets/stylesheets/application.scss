@@ -22,6 +22,20 @@
   .today {
     background-color: #fffde6 !important; // 薄い黄色
     font-weight: bold;
+    a {
+      background-color: #fd0d0d;
+      color: white;             /* 文字色を白に */
+      width: 2rem;              /* 幅 */
+      height: 2rem;             /* 高さ */
+      display: inline-flex;     /* 中央揃えのため */
+      align-items: center;      /* 中央揃えのため */
+      justify-content: center;  /* 中央揃えのため */
+      text-decoration: none;    /* 下線を消す */
+      &:hover {
+        background-color: #0b5ed7; /* 少し濃い青色 */
+        color: white;
+      }
+    }
   }
 }
 
