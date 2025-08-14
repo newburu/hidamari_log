@@ -12,7 +12,13 @@
           classes.join(' ')
         }
       ) do |date, items_on_day| %>
-    <%= link_to date.day, new_entry_path(start_time: date) %>
+    <% if items_on_day.present? %>
+      <%# 記録があれば、その日の詳細ページへ %>
+      <%= link_to date.day, entry_path(date) %>
+    <% else %>
+      <%# 記録がなければ、新規登録ページへ %>
+      <%= link_to date.day, new_entry_path(start_time: date) %>
+    <% end %>
 
     <%# この日のアイテムを一覧表示 %>
     <% @calendar_items.map(&:start_time).uniq.each do |day| %>

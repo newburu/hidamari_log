@@ -29,6 +29,17 @@ ja:
       goal:
         title: タイトル
         start_time: 達成日
+    errors:
+      models:
+        event:
+          attributes:
+            start_time:
+              taken: "にはすでに記録があります"
+        goal:
+          attributes:
+            start_time:
+              taken: "にはすでに目標があります"
+
   helpers:
     submit:
       create: 登録する
