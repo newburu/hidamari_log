@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :create ]
+  skip_before_action :authenticate_user!, only: [ :create, :guest_login ]
 
   def create
     # OmniAuthから渡された認証情報を取得
@@ -12,6 +12,12 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
 
     redirect_to root_path, notice: "ログインしました。"
+  end
+
+  def guest_login
+    user = User.find_by(email: "guest@example.com")
+    session[:user_id] = user.id
+    redirect_to root_path, notice: "ゲストユーザーとしてログインしました。"
   end
 
   def destroy

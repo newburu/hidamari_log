@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   before_action :authenticate_user!
-  helper_method :current_user
+  helper_method :current_user, :guest_user?
   before_action :set_beginning_of_week
 
   private
@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+
+  def guest_user?
+    current_user&.email == "guest@example.com"
   end
 
   def set_beginning_of_week

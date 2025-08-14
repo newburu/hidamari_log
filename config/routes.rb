@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :entries, only: [ :new, :create, :show ]
   get "/auth/:provider/callback", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  post "/guest_login", to: "sessions#guest_login"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
