@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :events, only: [ :new, :create, :show, :edit, :update, :destroy ]
   resources :goals, only: [ :new, :create, :show, :edit, :update, :destroy ]
   resources :entries, only: [ :new, :create, :show ]
-  get "/auth/:provider/callback", to: "sessions#create"
+  resource :setting, only: [:edit, :update]
+  match "/auth/:provider/callback", to: "sessions#create", via: [:get, :post]
   delete "/logout", to: "sessions#destroy"
   post "/guest_login", to: "sessions#guest_login"
 

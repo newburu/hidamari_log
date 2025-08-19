@@ -12,6 +12,8 @@
 Changelog.destroy_all
 
 Changelog.create!([
+  { published_on: '2025-08-19', content: '<span class="badge bg-success me-2">NEW</span>個人設定ページを追加し、名前を変更できるようにしました。' },
+  { published_on: '2025-08-19', content: '<span class="badge bg-info me-2">UPDATE</span>ユーザーメニューをドロップダウン形式に変更しました。' },
   { published_on: '2025-08-14', content: '<span class="badge bg-success me-2">NEW</span>ゲストログイン機能を追加しました。' },
   { published_on: '2025-08-14', content: '<span class="badge bg-success me-2">NEW</span>記録の詳細ページからXに投稿をシェアできる機能を追加しました。' },
   { published_on: '2025-08-13', content: '<span class="badge bg-success me-2">NEW</span>コピー機能を追加しました。' },
