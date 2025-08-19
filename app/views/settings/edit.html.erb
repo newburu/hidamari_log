@@ -1,0 +1,36 @@
+<h1>設定</h1>
+
+<%= form_with(model: @user, url: setting_path, method: :patch) do |form| %>
+  <% if @user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :copy_format, "コピー内容のフォーマット", class: "form-label" %>
+    <%= form.text_area :copy_format, class: "form-control", rows: 10 %>
+    <div class="form-text">
+      <p>「内容をコピー」ボタンを押したときのテキストをカスタマイズできます。</p>
+      <p>以下のプレースホルダを使用できます:</p>
+      <ul>
+        <li><code>{Good&New}</code>: その日のGood&Newの内容に置き換わります。</li>
+        <li><code>{目標}</code>: その日の目標の内容に置き換わります。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "更新", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<div class="mt-4">
+  <%= link_to "カレンダーに戻る", root_path, class: "btn btn-outline-secondary" %>
+</div>

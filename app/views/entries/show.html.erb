@@ -1,7 +1,7 @@
 <%# app/views/entries/show.html.erb %>
 <h1><%= @date.strftime('%Y年%m月%d日') %> の記録</h1>
 
-<div data-controller="clipboard">
+<div>
   <div class="row mt-4">
     <%# --- Good & New の表示 --- %>
     <% if @event %>
@@ -12,7 +12,7 @@
             <%= link_to '編集', edit_event_path(@event), class: 'btn btn-secondary btn-sm' %>
           </div>
           <div class="card-body">
-            <div class="card-text" data-clipboard-target="source"><%= simple_format(@event.content) %></div>
+            <div class="card-text"><%= simple_format(@event.content) %></div>
           </div>
         </div>
       </div>
@@ -36,8 +36,8 @@
 
   <div class="mt-4 d-flex align-items-center">
     <%= link_to "カレンダーに戻る", root_path, class: "btn btn-outline-secondary" %>
-    <% if @event %>
-      <button data-action="click->clipboard#copy" class="btn btn-outline-secondary ms-2">
+    <% if @event || @goal %>
+      <button data-controller="clipboard" data-clipboard-text-value="<%= @clipboard_text %>" data-action="click->clipboard#copy" class="btn btn-outline-secondary ms-2">
         <i class="bi bi-clipboard"></i> 内容をコピー
       </button>
       <%

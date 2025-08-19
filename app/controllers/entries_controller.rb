@@ -17,6 +17,12 @@ class EntriesController < ApplicationController
     @date = Date.parse(params[:id])
     @event = current_user.events.find_by(start_time: @date.all_day)
     @goal = current_user.goals.find_by(start_time: @date.all_day)
+
+    format = current_user.copy_format || ""
+    good_and_new_text = @event&.content || ""
+    goal_text = @goal&.title || ""
+
+    @clipboard_text = format.gsub('{Good&New}', good_and_new_text).gsub('{目標}', goal_text)
   end
 
   private
