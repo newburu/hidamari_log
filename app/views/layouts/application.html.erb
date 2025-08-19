@@ -48,8 +48,16 @@
         </a>
         <div class="ms-auto d-flex align-items-center gap-2">
           <% if current_user %>
-            <%= link_to "設定", edit_setting_path, class: 'btn btn-outline-secondary btn-sm' %>
-            <%= button_to "ログアウト", logout_path, method: :delete, class: 'btn btn-outline-secondary btn-sm' %>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= current_user.name %>さん
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><%= link_to "設定", edit_setting_path, class: 'dropdown-item' %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= button_to "ログアウト", logout_path, method: :delete, class: 'dropdown-item' %></li>
+              </ul>
+            </div>
           <% else %>
             <%= button_to "Googleでログイン", "/auth/google_oauth2", class: 'btn btn-outline-primary', form: { data: { turbo: false } } %>
             <%= button_to "Xでログイン", "/auth/twitter2", class: 'btn btn-outline-info', form: { data: { turbo: false } } %>
