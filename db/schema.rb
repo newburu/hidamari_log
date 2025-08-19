@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_14_083426) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_19_062130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -46,6 +46,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_14_083426) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+    t.text "copy_format", default: "今日のGood&Newは、\n{Good&New}\n\n目標は、\n{目標}"
   end
 
   add_foreign_key "events", "users"
