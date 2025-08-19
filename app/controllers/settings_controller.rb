@@ -19,6 +19,6 @@ class SettingsController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :copy_format)
   end
 end

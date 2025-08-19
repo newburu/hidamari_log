@@ -12,7 +12,7 @@
             <%= link_to '編集', edit_event_path(@event), class: 'btn btn-secondary btn-sm' %>
           </div>
           <div class="card-body">
-            <div class="card-text" data-clipboard-target="source"><%= simple_format(@event.content) %></div>
+            <div class="card-text"><%= simple_format(@event.content) %></div>
           </div>
         </div>
       </div>
@@ -34,6 +34,7 @@
     <% end %>
   </div>
 
+  <div class="d-none" data-clipboard-target="source"><%= formatted_copy_text(current_user.copy_format, @event, @goal) %></div>
   <div class="mt-4 d-flex align-items-center">
     <%= link_to "カレンダーに戻る", root_path, class: "btn btn-outline-secondary" %>
     <% if @event %>
