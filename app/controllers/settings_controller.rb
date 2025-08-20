@@ -6,7 +6,7 @@ class SettingsController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to edit_setting_path, notice: '名前が更新されました。'
+      redirect_to edit_setting_path, notice: "更新しました。"
     else
       render :edit
     end
@@ -19,6 +19,6 @@ class SettingsController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :copy_format)
   end
 end

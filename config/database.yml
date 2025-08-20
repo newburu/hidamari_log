@@ -15,7 +15,6 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: newburu
   password: <%= ENV["HIDAMARI_LOG_DATABASE_PASSWORD"] %>
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
