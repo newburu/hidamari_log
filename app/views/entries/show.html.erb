@@ -45,8 +45,11 @@
         # 詳細ページのURLを取得
         page_url = entry_url(@event.start_time.to_date)
 
+        # formatted_copy_textヘルパーを使ってツイート本文のベースを作成
+        base_text = formatted_copy_text(current_user.copy_format, @event, @goal)
+
         # ツイートの本文を作成（URLと、その後の改行も本文に含める）
-        tweet_text = "今日のGood & New！\n\n#{@event.content}\n\n#{page_url}\n\n"
+        tweet_text = "#{base_text}\n\n#{page_url}\n\n"
 
         # ハッシュタグ
         hashtags = "ひだまりろぐ"
