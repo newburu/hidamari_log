@@ -11,6 +11,7 @@ class EntryForm
 
   # バリデーション
   validates :content, presence: true
+  validate :content_length
 
   def save
     # バリデーションに失敗したら false を返す
@@ -41,5 +42,20 @@ class EntryForm
       errors.add(error.attribute, error.message)
     end
     false
+  end
+
+  private
+
+  def content_length
+    return if content.blank?
+    return unless user_id
+
+    user = User.find(user_id)
+    # The `try` is important because the migration has not run yet.
+    limit = user.try(:good_new_character_limit) || 250
+
+    if content.length > limit
+      errors.add(:content, "は\#{limit}文字以内で入力してください")
+    end
   end
 end

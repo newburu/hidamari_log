@@ -17,9 +17,12 @@
       <%= form.hidden_field :start_time %>
 
       <%# --- Good & New の入力欄 --- %>
-      <div class="mb-3">
+      <div class="mb-3" data-controller="character-counter">
         <%= form.label :content, 'Good & New', class: 'form-label fw-bold' %>
-        <%= form.text_area :content, rows: 5, class: 'form-control', placeholder: '今日あった良いことや、新しい発見を記録しましょう' %>
+        <%= form.text_area :content, rows: 5, class: 'form-control', placeholder: '今日あった良いことや、新しい発見を記録しましょう', data: { action: 'input->character-counter#update', 'character-counter-target': 'input' } %>
+        <div class="text-end text-muted" data-character-counter-target="counter">
+          <span data-character-counter-target="count">0</span> / <span data-character-counter-target="limit"><%= current_user.try(:good_new_character_limit) || 250 %></span>
+        </div>
       </div>
 
       <%# --- 目標の入力欄 --- %>
