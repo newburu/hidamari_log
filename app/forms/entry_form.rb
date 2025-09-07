@@ -8,6 +8,8 @@ class EntryForm
   attribute :title, :string
   attribute :start_time, :datetime
   attribute :user_id, :integer
+  attribute :event_id, :integer
+  attribute :goal_id, :integer
 
   # バリデーション
   validates :content, presence: true
@@ -37,6 +39,33 @@ class EntryForm
     true # 成功したら true を返す
   rescue ActiveRecord::RecordInvalid => e
     # 保存に失敗した場合、エラー情報をフォームオブジェクトにコピーする
+    e.record.errors.each do |error|
+      errors.add(error.attribute, error.message)
+    end
+    false
+  end
+
+  def update
+    return false unless valid?
+
+    ActiveRecord::Base.transaction do
+      user = User.find(user_id)
+      event = user.events.find(event_id)
+      event.update!(content: content)
+
+      goal = user.goals.find_by(id: goal_id)
+      if title.present?
+        if goal.present?
+          goal.update!(title: title)
+        else
+          user.goals.create!(title: title, start_time: start_time)
+        end
+      elsif goal.present?
+        goal.destroy!
+      end
+    end
+    true
+  rescue ActiveRecord::RecordInvalid => e
     e.record.errors.each do |error|
       errors.add(error.attribute, error.message)
     end
