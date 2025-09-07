@@ -1,0 +1,39 @@
+<% date = @entry_form.start_time %>
+<h1><%= date.strftime('%Y年%m月%d日') %> の記録</h1>
+
+<div class="card mt-4">
+  <div class="card-body">
+    <%= form_with(model: @entry_form, url: entry_path(date), method: :patch) do |form| %>
+      <% if @entry_form.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <ul>
+            <% @entry_form.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form.hidden_field :start_time %>
+      <%= form.hidden_field :event_id %>
+      <%= form.hidden_field :goal_id %>
+
+      <%# --- Good & New の入力欄 --- %>
+      <div class="mb-3">
+        <%= form.label :content, 'Good & New', class: 'form-label fw-bold' %>
+        <%= form.text_area :content, rows: 5, class: 'form-control', placeholder: '今日あった良いことや、新しい発見を記録しましょう' %>
+      </div>
+
+      <%# --- 目標の入力欄 --- %>
+      <div class="mb-3">
+        <%= form.label :title, '目標（任意）', class: 'form-label fw-bold' %>
+        <%= form.text_field :title, class: 'form-control', placeholder: 'この日に達成したい目標があれば入力' %>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <%= form.submit "まとめて更新する", class: 'btn btn-primary' %>
+        <%= link_to 'カレンダーに戻る', root_path, class: "btn btn-outline-secondary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

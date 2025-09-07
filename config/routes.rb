@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "calendar/index"
   resources :events, only: [ :new, :create, :show, :edit, :update, :destroy ]
   resources :goals, only: [ :new, :create, :show, :edit, :update, :destroy ]
-  resources :entries, only: [ :new, :create, :show ]
+  resources :entries, only: [ :new, :create, :show, :edit, :update ]
   resource :setting, only: [:edit, :update]
   match "/auth/:provider/callback", to: "sessions#create", via: [:get, :post]
   delete "/logout", to: "sessions#destroy"
