@@ -79,3 +79,5 @@ gem "omniauth-rails_csrf_protection"
 
 # OGP
 gem "meta-tags"
+
+gem "dockerfile-rails", ">= 1.7", group: :development

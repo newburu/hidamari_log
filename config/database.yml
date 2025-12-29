@@ -59,4 +59,5 @@ production:
     url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *default
+    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_cache" } if ENV["DATABASE_URL"] %>
     url: <%= ENV["DATABASE_URL"] %>
