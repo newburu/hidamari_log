@@ -37,6 +37,12 @@
       </script>
     <% end %>
     <%# --- End Google Analytics --- %>
+    <%# --- Google AdSense --- %>
+    <% if Rails.env.production? && ENV['GOOGLE_ADSENSE_ID'].present? %>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=<%= ENV['GOOGLE_ADSENSE_ID'] %>"
+           crossorigin="anonymous"></script>
+    <% end %>
+    <%# --- End Google AdSense --- %>
   </head>
 
   <body>
