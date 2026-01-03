@@ -6,7 +6,9 @@ gem "rails", "~> 8.0.2"
 gem "propshaft"
 # Use mysql as the database for Active Record
 # gem "mysql2", "~> 0.5"
-gem "pg"
+# gem "pg"
+gem "mysql2", "~> 0.5"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -33,7 +35,16 @@ gem "solid_cable"
 gem "bootsnap", require: false
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
-gem "kamal", require: false
+# gem "kamal", require: false
+
+group :development do
+  gem "capistrano"
+  gem "capistrano-rails"
+  gem "capistrano-rbenv"
+  gem "capistrano-puma"
+  gem "ed25519"
+  gem "bcrypt_pbkdf"
+end
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
