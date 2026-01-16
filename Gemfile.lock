@@ -160,7 +160,7 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.13.1)
+    json (2.13.2)
     jwt (3.1.2)
       base64
     language_server-protocol (3.17.0.5)
@@ -239,7 +239,7 @@ GEM
     omniauth-rails_csrf_protection (1.0.2)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    omniauth-twitter2 (0.1.0)
+    omniauth-twitter2 (1.0.0)
       omniauth
       omniauth-oauth2 (~> 1.0)
     ostruct (0.6.3)
@@ -264,7 +264,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.1.16)
+    rack (3.2.0)
     rack-protection (4.1.1)
       base64 (>= 0.1.0)
       logger (>= 1.6.0)
