@@ -11,17 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_08_19_154431) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_catalog.plpgsql"
-
-  create_table "changelogs", force: :cascade do |t|
+  create_table "changelogs", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.date "published_on"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "events", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.text "content"
     t.datetime "start_time"
     t.datetime "created_at", null: false
@@ -30,7 +27,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_19_154431) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "goals", force: :cascade do |t|
+  create_table "goals", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "title"
     t.date "start_time"
     t.datetime "created_at", null: false
@@ -39,7 +36,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_19_154431) do
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_uca1400_ai_ci", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
     t.string "name"
