@@ -5,6 +5,8 @@ set :application, "hidamari_log"
 set :repo_url, "git@github.com:newburu/hidamari_log.git" # Keep for reference or remove if strictly local. rsync plugin uses local directory by default.
 # rbenvのパスを明示的に指定します
 set :rbenv_path, "/usr/local/src/rbenv"
+set :rbenv_type, :user
+set :rbenv_ruby, "3.4.5"
 
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), "..", "lib")
 set :scm, :dummy
